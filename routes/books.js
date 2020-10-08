@@ -47,7 +47,6 @@ router.post("/", asyncHandler(async (req, res) => {
   res.render("books/index", {books: rows, title: "Books", numberOfPages, search});
 }));
 
-
 /* GET search */
 async function queryBooks(search, page) {
   console.log(search, page);
