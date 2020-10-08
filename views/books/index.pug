@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+    h1 SQL LIBRARY MANAGER
+    p
+    form(method="post", class="search-form" action="/books")
+        input(class="search-input" type="text" name="searchForm" placeholder='Search...' autofocus)
+        button(class="search-button" type="submit" ) Search
+    p
+      a.button(href='/books/new') Create New Book
+    br
+    br
+    table
+        thead
+            tr
+                th Title
+                th Author
+                th Genre
+                th Year
+        tbody
+        each book in books
+            tr
+                td
+                    a(href=`/books/${book.id}`)= book.title
+                td= book.author
+                td= book.genre
+                td= book.year
+
+    br
+    br
+    p
+        - for (var x = 0; x < numberOfPages; x++)
+            a(class="page" href="/books?page=" + (x + 1)) #{x+1}
+    
